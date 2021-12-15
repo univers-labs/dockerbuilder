@@ -1,7 +1,7 @@
 FROM hephy/base:v0.4.0
 
 RUN buildDeps='gcc git libffi-dev libssl-dev python3-dev python3-pip python3-wheel python3-setuptools'; \
-    apt-get update && \
+    apt-get update --allow-unauthenticated --allow-insecure-repositories && \
     apt-get install -y --no-install-recommends \
         $buildDeps \
         libffi6 \

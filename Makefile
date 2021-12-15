@@ -11,7 +11,7 @@ DEV_ENV_CMD := ${DEV_ENV_PREFIX} ${DEV_ENV_IMAGE}
 
 # For cases where we're building from local
 docker-build:
-	docker build --progress plain ${DOCKER_BUILD_FLAGS} -t ${IMAGE} rootfs
+	docker build --progress plain --no-cache ${DOCKER_BUILD_FLAGS} -t ${IMAGE} rootfs
 	docker tag ${IMAGE} ${MUTABLE_IMAGE}
 
 test: test-style test-functional

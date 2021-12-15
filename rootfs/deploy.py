@@ -68,7 +68,7 @@ def download_file(tar_path):
     if os.getenv('BUILDER_STORAGE') == "minio":
         os.makedirs("/tmp/objectstore/minio")
         bucketFile = open('/tmp/objectstore/minio/builder-bucket', 'w')
-        bucketFile.write('git')
+        bucketFile.write(os.getenv('MINIO_BUCKET') or 'git')
         bucketFile.close()
         os.putenv('BUCKET_FILE', "/tmp/objectstore/minio/builder-bucket")
     elif os.getenv('BUILDER_STORAGE') in ["azure", "swift"]:
